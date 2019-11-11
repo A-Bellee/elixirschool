@@ -193,7 +193,7 @@ import List, only: :macros
 
 ### `require`
 
-Nous pouvons utiliser `require` pour dire a Elixir que nous allons utiliser les macros d'un autre module. La subtile différence avec `import` est qu'il permet d'utiliser les macros, mais pas les fonctions, du module spécifié:
+Nous pouvons utiliser `require` pour dire à Elixir que nous allons utiliser les macros d'un autre module. La subtile différence avec `import` est qu'il permet d'utiliser les macros, mais pas les fonctions du module spécifié:
 
 ```elixir
 defmodule Example do
@@ -207,10 +207,10 @@ Si nous essayons d'appeler une macro qui n'est pas encore chargée, Elixir nous 
 
 ### `use`
 
-Avec la macro `use` nous pouvons permettre a un autre module de modifier la définition de notre modul actuel.
-Quand nous appelons `use` dans notre code, nos appelons en fait le callback `__using__/1` défini par le module fourni.
+Avec la macro `use` nous pouvons permettre à un autre module de modifier la définition de notre module actuel.
+Quand nous appelons `use` dans notre code, nous appelons en fait le callback `__using__/1` défini par le module fourni.
 Le résultat de l'appel de la macro `__using__/1` devient partie intégrante de la définition de notre module.
-Pour mieux comprendre ce fonctionnement, regardons cet exemple:
+Pour mieux comprendre ce fonctionnement, regardons cet exemple :
 
 ```elixir
 defmodule Hello do
@@ -223,7 +223,7 @@ end
 ```
 
 Ici nous avons crée un module `Hello` qui définit le callback `__using__/1` à l'intérieur duquel nous définissons une fonction `hello/1`.
-Créons maintenant un nouveau module pour pouvoir tester notre code:
+Créons maintenant un nouveau module pour pouvoir tester notre code :
 
 ```elixir
 defmodule Example do
@@ -238,9 +238,9 @@ iex> Example.hello("Sean")
 "Hi, Sean"
 ```
 
-Nous pouvons voir que `use` a appelé le callback`__using__/1` dans `Hello` ce qui a ajouté le code retourné à notre module.
-Maintenant que nous avons vu un exemple simple, améliorons notre code pour voir comment`__using__/1` gère les options.
-Nous allons le faire en ajoutant une option `greeting`:
+Nous pouvons voir que `use` a appelé le callback `__using__/1` dans `Hello` ce qui a ajouté le code retourné à notre module.
+Maintenant que nous avons vu un exemple simple, améliorons notre code pour voir comment `__using__/1` gère les options.
+Nous allons le faire en ajoutant une option `greeting` :
 
 ```elixir
 defmodule Hello do
@@ -254,7 +254,7 @@ defmodule Hello do
 end
 ```
 
-Mettons à jour notre module `Example` pour inclure l'option `greeting` que nous venons de créer:
+Mettons à jour notre module `Example` pour inclure l'option `greeting` que nous venons de créer :
 
 
 ```elixir
@@ -263,7 +263,7 @@ defmodule Example do
 end
 ```
 
-Si nous essayons notre code dans IEx, nous devrions voir que le retour d'appel de `hello/1` a changé:
+Si nous essayons notre code dans IEx, nous devrions voir que le retour d'appel de `hello/1` a changé :
 
 ```
 iex> Example.hello("Sean")
